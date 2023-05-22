@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FilmesApi</name>
+    </assembly>
+    <members>
+        <member name="M:FilmesApi.Controllers.FilmeController.AdicionaFilme(FilmesApi.Data.Dtos.CreateFilmeDto)">
+            <summary>
+            Adiciona um filme ao banco de dados
+            </summary>
+            <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+            <returns>IActionResult</returns>
+            <response code="201">Caso inserção seja feita com sucesso</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.FilmeController.RecuperaFilmes(System.Int32,System.Int32)">
+            <summary>
+            Recupera uma lista de filmes do banco de dados
+            </summary>
+            <param name="skip">Número de filmes que serão pulados</param>
+            <param name="take">Número de filmes que serão recuperados</param>
+            <returns>Informações dos filmes buscados</returns>
+            <response code="200">Com a lista de filmes presentes na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.FilmeController.RecuperaFilmePorId(System.Int32)">
+            <summary>
+            Recupera um filme no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do filme a ser recuperado no banco</param>
+            <returns>Informações do filme buscado</returns>
+            <response code="200">Caso o id seja existente na base de dados</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.FilmeController.AtualizaFilme(System.Int32,FilmesApi.Data.Dtos.UpdateFilmeDto)">
+            <summary>
+            Atualiza um filme no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do filme a ser atualizado no banco</param>
+            <param name="filmeDto">Objeto com os campos necessários para atualização de um filme</param>
+            <returns>Sem conteúdo de retorno</returns>
+            <response code="204">Caso o id seja existente na base de dados e o filme tenha sido atualizado</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.FilmeController.AtualizaFilmeParcial(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{FilmesApi.Data.Dtos.UpdateFilmeDto})">
+            <summary>
+            Atualiza um filme no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do filme a ser atualizado no banco</param>
+            <param name="patch">Objeto com os campos necessários para atualização de um filme</param>
+            <returns>Sem conteúdo de retorno</returns>
+            <response code="204">Caso o id seja existente na base de dados e o filme tenha sido atualizado</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.FilmeController.DeletaFilme(System.Int32)">
+            <summary>
+            Deleta um filme no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do filme a ser atualizado no banco</param>
+            <returns>Sem conteúdo de retorno</returns>
+            <response code="204">Caso o id seja existente na base de dados e o filme tenha sido atualizado</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
+    </members>
+</doc>
