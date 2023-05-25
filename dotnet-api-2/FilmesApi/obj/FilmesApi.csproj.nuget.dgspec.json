@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Alura\\dotnet6-web-api\\dotnet-api-2\\FilmesApi\\FilmesApi.csproj": {}
+    "C:\\Alura\\dotnet6-web-api\\meu-dotnet-api-2\\dot-net-api-2\\dotnet-api-2\\FilmesApi\\FilmesApi.csproj": {}
   },
   "projects": {
-    "C:\\Alura\\dotnet6-web-api\\dotnet-api-2\\FilmesApi\\FilmesApi.csproj": {
+    "C:\\Alura\\dotnet6-web-api\\meu-dotnet-api-2\\dot-net-api-2\\dotnet-api-2\\FilmesApi\\FilmesApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Alura\\dotnet6-web-api\\dotnet-api-2\\FilmesApi\\FilmesApi.csproj",
+        "projectUniqueName": "C:\\Alura\\dotnet6-web-api\\meu-dotnet-api-2\\dot-net-api-2\\dotnet-api-2\\FilmesApi\\FilmesApi.csproj",
         "projectName": "FilmesApi",
-        "projectPath": "C:\\Alura\\dotnet6-web-api\\dotnet-api-2\\FilmesApi\\FilmesApi.csproj",
+        "projectPath": "C:\\Alura\\dotnet6-web-api\\meu-dotnet-api-2\\dot-net-api-2\\dotnet-api-2\\FilmesApi\\FilmesApi.csproj",
         "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-        "outputPath": "C:\\Alura\\dotnet6-web-api\\dotnet-api-2\\FilmesApi\\obj\\",
+        "outputPath": "C:\\Alura\\dotnet6-web-api\\meu-dotnet-api-2\\dot-net-api-2\\dotnet-api-2\\FilmesApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
