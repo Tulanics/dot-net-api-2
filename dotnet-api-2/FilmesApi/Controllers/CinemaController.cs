@@ -3,6 +3,7 @@ using FilmesApi.Data.Dtos;
 using FilmesApi.Data;
 using FilmesApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace FilmesApi.Controllers
 {
@@ -39,7 +40,8 @@ namespace FilmesApi.Controllers
             Cinema cinema = _mapper.Map<Cinema>(cinemaDto);
             _context.Cinemas.Add(cinema);
             _context.SaveChanges();
-            return CreatedAtAction(nameof(RecuperaCinemasPorId), new { Id = cinema.Id }, cinemaDto);
+            return CreatedAtAction(nameof(RecuperaCinemasPorId),
+                new { Id = cinema.Id }, cinemaDto);
         }
 
         /// <summary>
@@ -89,6 +91,35 @@ namespace FilmesApi.Controllers
                 return NotFound();
             }
             _mapper.Map(cinemaDto, cinema);
+            _context.SaveChanges();
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Atualiza parcialmente (algum atributo) um cinema no banco de dados usando seu id
+        /// </summary>
+        /// <param name="id">Id do cinema a ser atualizado no banco</param>
+        /// <param name="patch">Objeto com os campos necessários para atualização de um cinema</param>
+        /// <returns>Sem conteúdo de retorno</returns>
+        /// <response code="204">Caso o id seja existente na base de dados e o cinema tenha sido atualizado</response>
+        /// <response code="404">Caso o id seja inexistente na base de dados</response>
+        [HttpPatch("{id}")]
+        public IActionResult AtualizaCinemaParcial(int id,
+            JsonPatchDocument<UpdateFilmeDto> patch)
+        {
+            var cinema = _context.Filmes.FirstOrDefault(
+                cinema => cinema.Id == id);
+            if (cinema == null) return NotFound();
+
+            var cinemaParaAtualizar = _mapper.Map<UpdateFilmeDto>(cinema);
+
+            patch.ApplyTo(cinemaParaAtualizar, ModelState);
+
+            if (!TryValidateModel(cinemaParaAtualizar))
+            {
+                return ValidationProblem(ModelState);
+            }
+            _mapper.Map(cinemaParaAtualizar, cinema);
             _context.SaveChanges();
             return NoContent();
         }

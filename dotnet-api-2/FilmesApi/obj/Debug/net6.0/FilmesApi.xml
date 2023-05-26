@@ -4,6 +4,132 @@
         <name>FilmesApi</name>
     </assembly>
     <members>
+        <member name="T:FilmesApi.Controllers.CinemaController">
+            <summary>
+            Classe cinema
+            </summary>
+        </member>
+        <member name="M:FilmesApi.Controllers.CinemaController.#ctor(FilmesApi.Data.FilmeContext,AutoMapper.IMapper)">
+            <summary>
+            construtor de classe
+            </summary>
+            <param name="context"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:FilmesApi.Controllers.CinemaController.AdicionaCinema(FilmesApi.Data.Dtos.CreateCinemaDto)">
+            <summary>
+            Adiciona um cinema ao banco de dados
+            </summary>
+            <param name="cinemaDto">Objeto com os campos necessários para criação de um cinema</param>
+            <returns>IActionResult</returns>
+            <response code="201">Caso inserção seja feita com sucesso</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.CinemaController.RecuperaCinemas">
+            <summary>
+            Recupera uma lista de cinemas do banco de dados
+            </summary>
+            <returns>Informações dos cinemas buscados</returns>
+            <response code="200">Com a lista de cinemas presentes na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.CinemaController.RecuperaCinemasPorId(System.Int32)">
+            <summary>
+            Recupera um cinema no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do cinema a ser recuperado no banco</param>
+            <returns>Informações do cinema buscado</returns>
+            <response code="200">Caso o id seja existente na base de dados</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.CinemaController.AtualizaCinema(System.Int32,FilmesApi.Data.Dtos.UpdateCinemaDto)">
+            <summary>
+            Atualiza um cinema no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do cinema a ser atualizado no banco</param>
+            <param name="cinemaDto">Objeto com os campos necessários para atualização de um cinema</param>
+            <returns>Sem conteúdo de retorno</returns>
+            <response code="204">Caso o id seja existente na base de dados e o cinema tenha sido atualizado</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.CinemaController.AtualizaCinemaParcial(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{FilmesApi.Data.Dtos.UpdateFilmeDto})">
+            <summary>
+            Atualiza parcialmente (algum atributo) um cinema no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do cinema a ser atualizado no banco</param>
+            <param name="patch">Objeto com os campos necessários para atualização de um cinema</param>
+            <returns>Sem conteúdo de retorno</returns>
+            <response code="204">Caso o id seja existente na base de dados e o cinema tenha sido atualizado</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.CinemaController.DeletaCinema(System.Int32)">
+            <summary>
+            Deleta um cinema no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do cinema a ser atualizado no banco</param>
+            <returns>Sem conteúdo de retorno</returns>
+            <response code="204">Caso o id seja existente na base de dados e o cinema tenha sido atualizado</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.EnderecoController.#ctor(FilmesApi.Data.FilmeContext,AutoMapper.IMapper)">
+            <summary>
+            construtor de classe
+            </summary>
+            <param name="context"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:FilmesApi.Controllers.EnderecoController.AdicionaEndereco(FilmesApi.Data.Dtos.CreateEnderecoDto)">
+            <summary>
+            Adiciona um endereço ao banco de dados
+            </summary>
+            <param name="enderecoDto">Objeto com os campos necessários para criação de um endereço</param>
+            <returns>IActionResult</returns>
+            <response code="201">Caso inserção seja feita com sucesso</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.EnderecoController.RecuperaEndereco(System.Int32,System.Int32)">
+            <summary>
+            Recupera uma lista de endereço do banco de dados
+            </summary>
+            <param name="skip">Número de endereço que serão pulados</param>
+            <param name="take">Número de endereço que serão recuperados</param>
+            <returns>Informações dos endereço buscados</returns>
+            <response code="200">Com a lista de endereço presentes na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.EnderecoController.RecuperaEnderecoPorId(System.Int32)">
+            <summary>
+            Recupera um endereço no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do endereço a ser recuperado no banco</param>
+            <returns>Informações do endereço buscado</returns>
+            <response code="200">Caso o id seja existente na base de dados</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.EnderecoController.AtualizaEndereco(System.Int32,FilmesApi.Data.Dtos.UpdateEnderecoDto)">
+            <summary>
+            Recupera um endereco no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do endereco a ser recuperado no banco</param>
+            <returns>Informações do endereco buscado</returns>
+            <response code="200">Caso o id seja existente na base de dados</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.EnderecoController.AtualizaEnderecoParcial(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{FilmesApi.Data.Dtos.UpdateEnderecoDto})">
+            <summary>
+            Atualiza parcialmente (algum atributo) um endereço no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do endereço a ser atualizado no banco</param>
+            <param name="patch">Objeto com os campos necessários para atualização de um endereço</param>
+            <returns>Sem conteúdo de retorno</returns>
+            <response code="204">Caso o id seja existente na base de dados e o endereço tenha sido atualizado</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.EnderecoController.DeletaEndereco(System.Int32)">
+            <summary>
+            Deleta um endereço no banco de dados usando seu id
+            </summary>
+            <param name="id">Id do endereço a ser atualizado no banco</param>
+            <returns>Sem conteúdo de retorno</returns>
+            <response code="204">Caso o id seja existente na base de dados e o endereço tenha sido atualizado</response>
+            <response code="404">Caso o id seja inexistente na base de dados</response>
+        </member>
         <member name="M:FilmesApi.Controllers.FilmeController.AdicionaFilme(FilmesApi.Data.Dtos.CreateFilmeDto)">
             <summary>
             Adiciona um filme ao banco de dados
